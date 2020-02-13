@@ -1,0 +1,31 @@
+From 5df806acf77bca5cf6e530c7a04710dce0f854f1 Mon Sep 17 00:00:00 2001
+From: Igor Gnatenko <i.gnatenko.brain@gmail.com>
+Date: Sat, 22 Jun 2019 12:33:25 +0200
+Subject: [PATCH] Revert "Revert "Dependencies updated.""
+
+This reverts commit da04eca990b011f26d6c67efa8d02569ed05b320.
+---
+ src/main.rs | 7 +------
+ 1 file changed, 1 insertion(+), 6 deletions(-)
+
+diff --git a/src/main.rs b/src/main.rs
+index 2a68ce1..e2f0680 100644
+--- a/src/main.rs
++++ b/src/main.rs
+@@ -707,12 +707,7 @@ fn collect_self_data(path: &path::Path) -> Result<Data, Error> {
+     let mut total_size = 0;
+     let mut list = Vec::new();
+     for symbol in file.symbol_map().symbols() {
+-        match symbol.kind() {
+-            object::SymbolKind::Section | object::SymbolKind::File => continue,
+-            _ => {}
+-        }
+-
+-        if symbol.section_kind() != Some(object::SectionKind::Text) {
++        if symbol.is_undefined() || symbol.kind() != object::SymbolKind::Text {
+             continue;
+         }
+ 
+-- 
+2.22.0
+

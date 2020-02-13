@@ -1,0 +1,20 @@
+--- cargo-bloat-0.7.1/Cargo.toml	1970-01-01T00:00:00+00:00
++++ cargo-bloat-0.7.1/Cargo.toml	2019-06-22T10:33:00.042341+00:00
+@@ -21,7 +21,7 @@
+ license = "MIT"
+ repository = "https://github.com/RazrFalcon/cargo-bloat"
+ [dependencies.goblin]
+-version = "0.0.19"
++version = "0.0.22"
+ 
+ [dependencies.memmap]
+ version = "0.7"
+@@ -30,7 +30,7 @@
+ version = "0.5"
+ 
+ [dependencies.object]
+-version = "0.11"
++version = "0.12"
+ features = ["std", "compression"]
+ default-features = false
+ 
